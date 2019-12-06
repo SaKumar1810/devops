@@ -1,0 +1,69 @@
+root@ip-172-31-40-57:~/devops# ansible-playbook ec2.yml
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost
+does not match 'all'
+
+
+PLAY [Create EC2 Instance] ****************************************************************************
+
+TASK [Gathering Facts] ********************************************************************************
+ok: [localhost]
+
+TASK [ec2] ********************************************************************************************
+changed: [localhost]
+
+TASK [debug] ******************************************************************************************
+ok: [localhost] => {
+    "msg": {
+        "changed": true,
+        "failed": false,
+        "instance_ids": [
+            "i-0c160faae8d77a23f"
+        ],
+        "instances": [
+            {
+                "ami_launch_index": "0",
+                "architecture": "x86_64",
+                "block_device_mapping": {
+                    "/dev/sda1": {
+                        "delete_on_termination": true,
+                        "status": "attached",
+                        "volume_id": "vol-051d46f684a912b79"
+                    }
+                },
+                "dns_name": "ec2-13-126-93-215.ap-south-1.compute.amazonaws.com",
+                "ebs_optimized": false,
+                "groups": {
+                    "sg-04046cafb6d896fde": "devops-saranya"
+                },
+                "hypervisor": "xen",
+                "id": "i-0c160faae8d77a23f",
+                "image_id": "ami-0123b531fc646552f",
+                "instance_type": "t2.micro",
+                "kernel": null,
+                "key_name": "devops-saranya",
+                "launch_time": "2019-12-06T09:18:26.000Z",
+                "placement": "ap-south-1a",
+                "private_dns_name": "ip-172-31-43-197.ap-south-1.compute.internal",
+                "private_ip": "172.31.43.197",
+                "public_dns_name": "ec2-13-126-93-215.ap-south-1.compute.amazonaws.com",
+                "public_ip": "13.126.93.215",
+                "ramdisk": null,
+                "region": "ap-south-1",
+                "root_device_name": "/dev/sda1",
+                "root_device_type": "ebs",
+                "state": "running",
+                "state_code": 16,
+                "tags": {},
+                "tenancy": "default",
+                "virtualization_type": "hvm"
+            }
+        ],
+        "tagged_instances": []
+    }
+}
+
+PLAY RECAP ********************************************************************************************
+localhost                  : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+root@ip-172-31-40-57:~/devops#
+
