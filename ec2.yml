@@ -1,0 +1,17 @@
+- name: Create EC2 Instance
+  hosts: localhost
+  tasks:
+    - ec2:
+        key_name: devops-saranya
+        instance_type: t2.micro
+        image: ami-0123b531fc646552f
+        wait: yes
+        group: devops-saranya 
+        count: 1
+        vpc_subnet_id: subnet-f47a529c
+        assign_public_ip: yes
+        region: ap-south-1
+      register: out
+   
+    - debug:
+        msg: "{{out}}"
